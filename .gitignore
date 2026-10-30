@@ -1,0 +1,7 @@
+.env
+.env.*
+*.secret
+*.key
+.wrangler/
+node_modules/
+__pycache__/
