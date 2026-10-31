@@ -10,6 +10,7 @@ Usage: python3 deploy.py
 Prints: kv namespace id, deploy success + etag, workers.dev URL.
 """
 import json
+import os
 import sys
 import urllib.request
 import urllib.error
@@ -25,7 +26,7 @@ API_BASE = "https://api.cloudflare.com/client/v4"
 ACCOUNT_ID = "2e545132b910ae25963ce97b39dc8258"
 SCRIPT = "second-brain"
 KV_TITLE = "second-brain-memories"
-WORKER_JS = "/home/hatch/workspace/nebius-secondbrain/worker.js"
+WORKER_JS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "worker.js")
 
 
 def _api(method, path, data=None, ctype=None):

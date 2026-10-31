@@ -1,12 +1,12 @@
 // Second Brain — personal long-term memory assistant
 // Stack: Cloudflare Worker + KV, Nebius Token Factory (Qwen3-Embedding-8B),
-// NVIDIA Nemotron chat models (nvidia/nemotron-3-super-120b-a12b primary,
-// nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B fallback). Key via env.NEBIUS_API_KEY secret.
+// NVIDIA Nemotron chat models (nvidia/Nemotron-3.5-Super-VL primary,
+// nvidia/Nemotron-3_5-Lightning fallback). Key via env.NEBIUS_API_KEY secret.
 
 const NEBIUS_BASE = "https://api.tokenfactory.nebius.com/v1";
 const EMBED_MODEL = "Qwen/Qwen3-Embedding-8B";
-const CHAT_PRIMARY = "nvidia/nemotron-3-super-120b-a12b";
-const CHAT_FALLBACK = "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B";
+const CHAT_PRIMARY = "nvidia/Nemotron-3.5-Super-VL";
+const CHAT_FALLBACK = "nvidia/Nemotron-3_5-Lightning";
 
 const SEEDS = [
   {
@@ -75,7 +75,7 @@ const HTML = `<!DOCTYPE html>
     A personal long-term memory assistant. Everything you save is embedded with
     <b>Qwen3-Embedding-8B</b> on <b>Nebius Token Factory</b>, stored in Cloudflare KV,
     and recalled by semantic search. Questions are answered by the NVIDIA open model
-    <b>Nemotron 3 Super 120B</b> (fallback: Nemotron 3 Nano 30B), grounded only in your memories.
+    <b>Nemotron 3.5 Super VL</b> (fallback: Nemotron 3.5 Lightning), grounded only in your memories.
   </div>
 
   <div class="card">
