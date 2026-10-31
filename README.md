@@ -13,9 +13,11 @@ questions and get answers grounded only in what you saved, with sources cited.
   with its vector, in Cloudflare KV.
 - **Recall** — a question is embedded with the same model, cosine similarity
   ranks all stored memories, and the top 4 become the context.
-- **Answer** — the NVIDIA open model **`nvidia/nemotron-3-super-120b-a12b`**
-  (Nemotron 3 Super 120B, fallback `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B`)
-  answers strictly from those memories and names the source titles it used.
+- **Answer** — the NVIDIA open model **`nvidia/Nemotron-3.5-Super-VL`**
+  (Nemotron 3.5 Super VL, fallback `nvidia/Nemotron-3_5-Lightning`) answers
+  strictly from those memories and names the source titles it used. (As of Nov
+  2026, Nebius replaced the prior Super 120B / Nano 30B chat models with these
+  IDs; embeddings are unchanged.)
 
 Everything runs in a single Cloudflare Worker that serves both the UI and the
 JSON API. The Nebius API key is a Worker secret binding (`NEBIUS_API_KEY`) and
